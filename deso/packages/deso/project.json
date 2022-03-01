@@ -1,0 +1,33 @@
+{
+  "root": "packages/deso",
+  "sourceRoot": "packages/deso/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/deso",
+        "main": "packages/deso/src/index.ts",
+        "tsConfig": "packages/deso/tsconfig.lib.json",
+        "assets": ["packages/deso/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/deso/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/deso"],
+      "options": {
+        "jestConfig": "packages/deso/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
